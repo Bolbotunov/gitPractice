@@ -57,7 +57,7 @@ class Children extends Parent {
 }
 
 let parent1 = new Parent();
-parent1.voice(": ----im DAD!!");
+parent1.voice(": --000-im DAD!!");
 
 let children1 = new Children("football");
 children1.voice(":55-- im SON");
@@ -65,6 +65,3 @@ console.log(children1.year);
 function addShowtext(obj) {
   return (obj.showText = () => console.log("show new text"));
 }
-
-addShowtext(children1);
-children1.showText();
