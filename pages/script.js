@@ -57,7 +57,7 @@ class Children extends Parent {
 }
 
 let parent1 = new Parent();
-parent1.voice(": --000-im DAD!!");
+parent1.voice(": -d-000-im DAD!!");
 
 let children1 = new Children("football");
 children1.voice(":55-- im SON");
