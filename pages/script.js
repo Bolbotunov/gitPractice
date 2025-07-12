@@ -31,40 +31,61 @@
 
 // console.log(orderWeight("56 65 74 100 99 68 86 180 90"));
 
-class Parent {
-  static surName = "sidorov";
-  constructor() {
-    this.surName = Parent.surName;
+// class Parent {
+//   static surName = "sidorov";
+//   constructor() {
+//     this.surName = Parent.surName;
+//   }
+//   voice(sound) {
+//     console.log("thats voice of family", this.surName, sound);
+//   }
+// }
+
+// class Children extends Parent {
+//   year = 2000;
+//   constructor(hobby, year) {
+//     super();
+//     this.hobby = hobby;
+//     this.year = year;
+//   }
+//   voice(sound) {
+//     console.log("MY VOICE SON", this.surName, sound);
+//   }
+//   showYear() {
+//     console.log("year:", this.year);
+//   }
+// }
+
+// let parent1 = new Parent();
+// parent1.voice(": -d-000-im DAD!!");
+
+// let children1 = new Children("football");
+// children1.voice(":55-- im SON");
+// console.log(children1.year);
+// function addShowtext(obj) {
+//   return (obj.showText = () => console.log("show new text"));
+// }
+
+class NewArray extends Array {
+  getLength() {
+    console.log(this.length);
   }
-  voice(sound) {
-    console.log("thats voice of family", this.surName, sound);
+  pushNumbers() {
+    this.push(10, 20, 30);
+    console.log(this);
   }
 }
 
-class Children extends Parent {
-  year = 2000;
-  constructor(hobby, year) {
-    super();
-    this.hobby = hobby;
-    this.year = year;
-  }
-  voice(sound) {
-    console.log("MY VOICE SON", this.surName, sound);
-  }
-  showYear() {
-    console.log("year:", this.year);
+let myArray = new NewArray(1, 2, 3, 4, 5);
+
+myArray.getLength();
+myArray.pushNumbers();
+
+class newString extends String {
+  getUpper() {
+    return this[0].toUpperCase() + this.slice(1);
   }
 }
 
-let parent1 = new Parent();
-parent1.voice(": ----im DAD!!");
-
-let children1 = new Children("football");
-children1.voice(":55-- im SON");
-console.log(children1.year);
-function addShowtext(obj) {
-  return (obj.showText = () => console.log("show new text"));
-}
-
-addShowtext(children1);
-children1.showText();
+let myString = new newString("oleg");
+console.log(myString.getUpper());
