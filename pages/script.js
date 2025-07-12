@@ -72,7 +72,7 @@ class NewArray extends Array {
   }
   pushNumbers() {
     this.push(10, 20, 30);
-    console.log(this);
+    console.log(this.flat());
   }
 }
 
@@ -88,4 +88,9 @@ class newString extends String {
 }
 
 let myString = new newString("oleg");
-console.log(myString.getUpper());
+let a = myString.getUpper();
+console.log(a.split(""));
+
+let mySecondArr = new NewArray(a.split(""));
+mySecondArr.getLength();
+mySecondArr.pushNumbers();
