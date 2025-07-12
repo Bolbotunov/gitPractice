@@ -66,31 +66,54 @@
 //   return (obj.showText = () => console.log("show new text"));
 // }
 
-class NewArray extends Array {
-  getLength() {
-    console.log(this.length);
-  }
-  pushNumbers() {
-    this.push(10, 20, 30);
-    console.log(this.flat());
+// class NewArray extends Array {
+//   getLength() {
+//     console.log(this.length);
+//   }
+//   pushNumbers() {
+//     this.push(10, 20, 30);
+//     console.log(this.flat());
+//   }
+//   sum() {
+//     return this.reduce((acc, item) => {
+//       return (acc += item);
+//     }, 0);
+//   }
+// }
+
+// let myArray = new NewArray(1, 2, 3, 4);
+
+// myArray.getLength();
+// myArray.pushNumbers();
+// console.log(myArray.sum());
+
+// class newString extends String {
+//   getUpper() {
+//     return this[0].toUpperCase() + this.slice(1);
+//   }
+// }
+
+// let myString = new newString("oleg");
+// let a = myString.getUpper();
+// console.log(a.split(""));
+
+// let mySecondArr = new NewArray(a.split(""));
+// mySecondArr.getLength();
+// mySecondArr.pushNumbers();
+
+const ageMixin = {
+  getAge(age) {
+    console.log(`my Age ${age} - ${this.name}`);
+  },
+};
+
+class User {
+  constructor(name) {
+    this.name = name;
   }
 }
 
-let myArray = new NewArray(1, 2, 3, 4, 5);
+Object.assign(User.prototype, ageMixin);
 
-myArray.getLength();
-myArray.pushNumbers();
-
-class newString extends String {
-  getUpper() {
-    return this[0].toUpperCase() + this.slice(1);
-  }
-}
-
-let myString = new newString("oleg");
-let a = myString.getUpper();
-console.log(a.split(""));
-
-let mySecondArr = new NewArray(a.split(""));
-mySecondArr.getLength();
-mySecondArr.pushNumbers();
+const u = new User("Oleg");
+u.getAge(25); // my Age 25 - Oleg
