@@ -42,23 +42,44 @@
 // assert.strictEqual(bingo([['ABC', 65], ['HGR', 74], ['BYHT', 74]], 1), 'Winner!');
 // assert.strictEqual(bingo([['HGTYRE', 74], ['BE', 66], ['JKTY', 74]], 3), 'Loser!');
 
-function bingo(ticket, win) {
-  let wins = 0;
-  ticket.forEach((item) => {
-    let char = item[0].split("");
-    let win = char.some((ticket) => ticket.charCodeAt() === item[1]);
-    if (win) wins++;
-  });
-  return wins >= win ? "Winner!" : "Loser!";
+// function bingo(ticket, win) {
+//   let wins = 0;
+//   ticket.forEach((item) => {
+//     let char = item[0].split("");
+//     let win = char.some((ticket) => ticket.charCodeAt() === item[1]);
+//     if (win) wins++;
+//   });
+//   return wins >= win ? "Winner!" : "Loser!";
+// }
+
+// console.log(
+//   bingo(
+//     [
+//       ["ABC", 65],
+//       ["HGR", 74],
+//       ["BYHT", 74],
+//     ],
+//     2
+//   )
+// );
+
+// 3) название: Write Number in Expanded Form   6 kyu
+// ссылка: https://www.codewars.com/kata/5842df8ccbd22792a4000245/train/javascript
+// выход: 12 --> "10 + 2"
+//    45 --> "40 + 5"
+// 70304 --> "70000 + 300 + 4"
+
+function expandedForm(num) {
+  let str = num.toString();
+  return str
+    .split("")
+    .map((item, index) => {
+      let zero = str.length - 1 - index;
+      if (item === "0") return "";
+      let value = item + "0".repeat(zero);
+      return index > 0 ? " + " + value : value;
+    })
+    .join("");
 }
 
-console.log(
-  bingo(
-    [
-      ["ABC", 65],
-      ["HGR", 74],
-      ["BYHT", 74],
-    ],
-    2
-  )
-);
+console.log(expandedForm(70304));
