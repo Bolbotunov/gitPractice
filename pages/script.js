@@ -1422,3 +1422,263 @@
 // let { name, price } = obj;
 // let b = { name: "oleg", price, category: "1100" };
 // console.log("b:", b);
+
+// let arr = [1, 2, 3];
+
+// Array.prototype.myMap = function (fn) {
+//   let total = [];
+//   for (let i = 0; i < this.length; i++) {
+//     total.push(fn(this[i]));
+//   }
+//   console.log(total);
+//   return total;
+// };
+
+// arr.myMap(function (item) {
+//   return item * 10;
+// });
+
+// Array.prototype.myFilter = function (fn) {
+//   let result = [];
+//   for (let i = 0; i < this.length; i++) {
+//     if (fn(this[i])) {
+//       result.push(this[i]);
+//     }
+//   }
+//   console.log(result);
+//   return result;
+// };
+
+// arr.myFilter(function (item) {
+//   return item >= 2;
+// });
+
+// const obj = JSON.parse("{}");
+// console.log(obj);
+// console.log(Object.create({}));
+
+// const myObject = {
+//   value: 42,
+//   valueOf() {
+//     console.log("Вызван valueOf()");
+//     return this.value;
+//   },
+//   toString() {
+//     console.log("Вызван toString()");
+//     return `Value is ${this.value}`;
+//   },
+//   [Symbol.toPrimitive](hint) {
+//     console.log(`Вызван Symbol.toPrimitive с hint: ${hint}`);
+//     if (hint === "number") {
+//       return this.value;
+//     }
+//     if (hint === "string") {
+//       return `Primitive string: ${this.value}`;
+//     }
+//     return `Primitive default: ${this.value}`;
+//   },
+// };
+
+// console.log(myObject + 1); // Вывод: "Primitive default: 421" (сначала Symbol.toPrimitive, hint = "default", потом конкатенация строк)
+// console.log(myObject.toString()); // Вывод: "Primitive string: Value is 42" (сначала Symbol.toPrimitive, hint = "string", потом toString)
+// console.log(+myObject); // Вывод: 42 (Symbol.toPrimitive с hint = "number")
+// console.log(typeof NaN);
+
+// let obj = {
+//   name: "oleg",
+//   b: {
+//     age: 11,
+//   },
+// };
+
+// let obj2 = structuredClone(obj);
+// function deep(data) {
+//   if (typeof data !== "object") {
+//     return data;
+//   }
+// }
+
+// obj.b.age = 55;
+
+// let arr = Array.from({ length: 5 }, (_, i) => i);
+// console.log(arr);
+
+// console.log("obj", obj);
+// console.log("obj2", obj2);
+// console.log(obj === obj2);
+
+// let test = [1, 2, 3];
+
+// Array.prototype.myMap = function (fn) {
+//   let result = [];
+//   for (let i = 0; i < this.length; i++) {
+//     result.push(fn(this[i]));
+//   }
+//   return result;
+// };
+// console.log(
+//   test.myMap((item) => {
+//     return item * 10;
+//   })
+// );
+
+// Array.prototype.myFilter = function (fn) {
+//   let result = [];
+//   for (let i = 0; i < this.length; i++) {
+//     if (fn(this[i])) {
+//       result.push(this[i]);
+//     }
+//   }
+//   return result;
+// };
+// console.log(
+//   test.myFilter((item) => {
+//     return item > 1;
+//   })
+// );
+
+// Array.prototype.myreduce = function (fn, acc) {
+//   for (let i = 0; i < this.length; i++) {
+//     acc = fn(acc, this[i]);
+//   }
+//   return acc;
+// };
+
+// console.log(
+//   test.myreduce((acc, item) => {
+//     return (acc += item);
+//   }, 0)
+// );
+
+// let a = {
+//   name: "oleg",
+//   [Symbol.toPrimitive](hint) {
+//     console.log("hint:", hint);
+//   },
+//   valueOf() {
+//     return 15;
+//   },
+//   toString() {
+//     return this.name;
+//   },
+// };
+
+// console.log(a + "ss");
+
+// let obj = {
+//   name: "oleg",
+// };
+
+// function one(name) {
+//   return this.name;
+// }
+
+// let fn = one.bind(obj);
+// console.log(fn());
+
+// function one(a) {
+//   if (a === 1) return a;
+//   return a + one(a - 1);
+// }
+
+// console.log(one(3));
+
+// let a = [1, 2, 3];
+// Array.prototype.myMap = function (fn) {
+//   let result = [];
+//   for (let i = 0; i < this.length; i++) {
+//     result.push(fn(this[i]));
+//   }
+//   return result;
+// };
+
+// console.log(
+//   a.myMap((item) => {
+//     return item * 100;
+//   })
+// );
+
+// let fn = function test() {
+//   return 4;
+// };
+// let obj = {
+//   city: "minsk",
+// };
+// let arr = [1, 2, 3];
+// let a = new Map();
+// a.set("name", "oleg");
+// a.set("age", "11");
+
+// console.log(a.entries());
+// // let b = Object.entries(a);
+// // b.forEach((item) => {
+// //   console.log(item);
+// // });
+
+// let b = new Set([1, 2, 3]);
+// b.add(5);
+// b.add(7);
+
+// console.log(b.entries());
+
+// // let b = new Map(a.entries());
+// // console.log(b);
+
+// // let c = Object.fromEntries(b);
+// // console.log(c);
+
+// let obj = {
+//   name: "oleg",
+//   age: 22,
+// };
+
+// let d = Object.getOwnPropertyDescriptor(obj, "name");
+// console.log(d);
+
+// const obj = {
+//   name: "oleg",
+
+//   get fullData() {
+//     return this.name;
+//   },
+//   set fullData(value) {
+//     value.length > 4 ? (this.name = value) : this.name;
+//   },
+// };
+
+// console.log(obj.fullData);
+// obj.fullData = "egorka";
+// console.log(obj.fullData);
+
+// let a = {
+//   name: "oleg",
+// };
+
+// Object.defineProperty(a, "age", {
+//   value: 55,
+//   writable: true,
+//   enumerable: true,
+//   configurable: true,
+// });
+
+// a.age = 66;
+
+// console.log(a);
+
+// let a = setTimeout(() => console.log(1000), 1000);
+// let b = setTimeout(() => console.log(2000), 2000);
+// console.log(a);
+// console.log(b);
+
+// function defer(f, ms) {
+//   return function () {
+//     setTimeout(() => f.apply(this, arguments), ms);
+//   };
+// }
+
+// function sayHi(who) {
+//   alert("Hello, " + who);
+// }
+
+// let sayHiDeferred = defer(sayHi, 2000);
+// sayHiDeferred("John");
