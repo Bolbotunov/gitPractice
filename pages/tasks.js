@@ -63,23 +63,74 @@
 //   )
 // );
 
-// 3) название: Write Number in Expanded Form   6 kyu
+// 4) название: Write Number in Expanded Form   6 kyu
 // ссылка: https://www.codewars.com/kata/5842df8ccbd22792a4000245/train/javascript
 // выход: 12 --> "10 + 2"
 //    45 --> "40 + 5"
 // 70304 --> "70000 + 300 + 4"
 
-function expandedForm(num) {
-  let str = num.toString();
-  return str
-    .split("")
-    .map((item, index) => {
-      let zero = str.length - 1 - index;
-      if (item === "0") return "";
-      let value = item + "0".repeat(zero);
-      return index > 0 ? " + " + value : value;
-    })
-    .join("");
+// function expandedForm(num) {
+//   let str = num.toString();
+//   return str
+//     .split("")
+//     .map((item, index) => {
+//       let zero = str.length - 1 - index;
+//       if (item === "0") return "";
+//       let value = item + "0".repeat(zero);
+//       return index > 0 ? " + " + value : value;
+//     })
+//     .join("");
+// }
+
+// console.log(expandedForm(70304));
+
+// 5) название: Count the smiley faces!  6 kyu
+// ссылка: https://www.codewars.com/kata/583203e6eb35d7980400002a/train/javascript
+// выход: countSmileys([':)', ';(', ';}', ':-D']);       // should return 2;
+// countSmileys([';D', ':-(', ':-)', ';~)']);     // should return 3;
+// countSmileys([';]', ':[', ';*', ':$', ';-D']); // should return 1;
+
+// Примеры допустимых смайликов: :) :D ;-D :~)
+// Недопустимые смайлики: ;( :> :} :]
+
+// function countSmileys(arr) {
+//   const eyes = [":", ";"];
+//   const nose = ["-", "~"];
+//   const mouth = [")", "D"];
+//   let count = 0;
+
+//   for (const face of arr) {
+//     if (
+//       face.length === 2 &&
+//       eyes.includes(face[0]) &&
+//       mouth.includes(face[1])
+//     ) {
+//       count++;
+//     } else if (
+//       face.length === 3 &&
+//       eyes.includes(face[0]) &&
+//       nose.includes(face[1]) &&
+//       mouth.includes(face[2])
+//     ) {
+//       count++;
+//     }
+//   }
+
+//   return count;
+// }
+
+// 6) название: Equal Sides Of An Array  6 kyu
+// ссылка: https://www.codewars.com/kata/5679aa472b8f57fb8c000047/train/javascript
+// выход: Наименьший индекс N, при котором сторона слева от N равна стороне справа от N.
+// Если вы не найдете индекс, соответствующий этим правилам, то вы вернете -1.
+
+function findEvenIndex(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let left = arr.slice(0, i).reduce((a, b) => a + b, 0);
+    let right = arr.slice(i + 1).reduce((a, b) => a + b, 0);
+    if (left === right) return i;
+  }
+  return -1;
 }
 
-console.log(expandedForm(70304));
+console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
