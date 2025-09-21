@@ -1682,3 +1682,70 @@
 
 // let sayHiDeferred = defer(sayHi, 2000);
 // sayHiDeferred("John");
+
+// let a = [1, 2];
+// let b = [1, 2, 3];
+
+// function fn(arr) {
+//   console.log("fn called with:", arr);
+//   return arr;
+// }
+
+// function decorator(originalFunc) {
+//   return function wrapper(...args) {
+//     let firstArg = args[0];
+//     if (firstArg.includes(3)) {
+//       console.log("has");
+//     } else {
+//       firstArg.push("new 3");
+//       console.log("modified array:", firstArg);
+//     }
+
+//     return originalFunc(...args);
+//   };
+// }
+
+// let total = decorator(fn);
+// total(a);
+// total(b);
+
+// function debounce(func, ms) {
+//   let timeout;
+//   return function() {
+//     clearTimeout(timeout);
+//     timeout = setTimeout(() => func.apply(this, arguments), ms);
+//   };
+// }
+
+// function logDecorator(fn) {
+//   return function (...args) {
+//     console.log("Calling with", args);
+//     return fn.apply(this, args); // сохраняем контекст и аргументы
+//   };
+// }
+
+// function test(arr) {
+//   arr.push([11, 22, 33]);
+
+//   return arr;
+// }
+
+// let a = logDecorator(test);
+// a([1, 2, 3]);
+
+// function* gen(a, b) {
+//   for (let i = a; i < b; i++) {
+//     yield i;
+//   }
+// }
+
+// function* startPass() {
+//   yield* gen(1, 20);
+//   yield* gen(21, 50);
+//   yield* gen("A", "B");
+// }
+
+// let start = startPass();
+// for (let key of start) {
+//   console.log(key);
+// }

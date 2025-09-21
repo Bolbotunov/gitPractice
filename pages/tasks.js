@@ -124,13 +124,37 @@
 // выход: Наименьший индекс N, при котором сторона слева от N равна стороне справа от N.
 // Если вы не найдете индекс, соответствующий этим правилам, то вы вернете -1.
 
-function findEvenIndex(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    let left = arr.slice(0, i).reduce((a, b) => a + b, 0);
-    let right = arr.slice(i + 1).reduce((a, b) => a + b, 0);
-    if (left === right) return i;
+// function findEvenIndex(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     let left = arr.slice(0, i).reduce((a, b) => a + b, 0);
+//     let right = arr.slice(i + 1).reduce((a, b) => a + b, 0);
+//     if (left === right) return i;
+//   }
+//   return -1;
+// }
+
+// console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
+
+// 7) название: Kebabize 6 kyu
+// ссылка: https://www.codewars.com/kata/57f8ff867a28db569e000c4a/train/javascript
+// выход: "camelsHaveThreeHumps"  -->  "camels-have-three-humps"
+// "camelsHave3Humps"  -->  "camels-have-humps"
+// "CAMEL"  -->  "c-a-m-e-l"
+
+function kebabize(str) {
+  str = str.replace(/\d/g, "");
+  let lowerStr = str.toLowerCase().split("");
+  str = str.split("");
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== lowerStr[i]) {
+      if (i !== 0) {
+        str[i] = "-" + lowerStr[i];
+      } else {
+        str[i] = lowerStr[i];
+      }
+    }
   }
-  return -1;
+  return str.join("");
 }
 
-console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
+console.log(kebabize("camelsHave3Humps"));
