@@ -83,11 +83,11 @@
 
 // // Example 6 !!!!!!!!!!!!!!!!
 
-// let tea = 'sweet';
+// let tea = "sweet";
 
 // if (true) {
-//   tea = 'sour';
-//   var tea = 'iced';
+//   tea = "sour";
+//   var tea = "iced";
 // }
 
 // console.log(tea);
@@ -103,7 +103,7 @@
 // function eatBagel() {
 //   numberOfBagels -= 1;
 //   if (numberOfBagels === 0) {
-//     console.log('Oh nO, Out Of bagles!');
+//     console.log("Oh nO, Out Of bagles!");
 //   } else {
 //     console.log(`Yummy. There are ${numberOfBagels} left!`);
 //   }
