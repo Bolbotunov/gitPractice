@@ -141,20 +141,134 @@
 // "camelsHave3Humps"  -->  "camels-have-humps"
 // "CAMEL"  -->  "c-a-m-e-l"
 
-function kebabize(str) {
-  str = str.replace(/\d/g, "");
-  let lowerStr = str.toLowerCase().split("");
-  str = str.split("");
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] !== lowerStr[i]) {
-      if (i !== 0) {
-        str[i] = "-" + lowerStr[i];
-      } else {
-        str[i] = lowerStr[i];
-      }
-    }
-  }
-  return str.join("");
-}
+// function kebabize(str) {
+//   str = str.replace(/\d/g, "");
+//   let lowerStr = str.toLowerCase().split("");
+//   str = str.split("");
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] !== lowerStr[i]) {
+//       if (i !== 0) {
+//         str[i] = "-" + lowerStr[i];
+//       } else {
+//         str[i] = lowerStr[i];
+//       }
+//     }
+//   }
+//   return str.join("");
+// }
 
-console.log(kebabize("camelsHave3Humps"));
+// console.log(kebabize("camelsHave3Humps"));
+
+// 8) название: Find the most same sum value of pairs 5 kyu
+// ссылка: https://www.codewars.com/kata/5806dc10a4647e6493000152/train/javascript
+// выход:arr1=[1,2,3,4,5]
+// arr2=[9,8,0,0,0]
+// findPair(arr1,arr2) should return [[1,9],[2,8]]
+
+// function findPair(arr1, arr2) {
+//   let maxNum = 0;
+//   let maxIndex = 0;
+//   let arr = arr1.map((item, index) => {
+//     return [item, arr2[index]];
+//   });
+//   return arr.map((item, index) => {
+//     let sum = item[0] + item[1];
+//     if (sum > maxNum) {
+//       maxNum = sum;
+//       maxIndex = index;
+//     }
+//     console.log(maxNum, maxIndex);
+//     return sum;
+//   });
+// }
+
+// function findPair(arr1, arr2) {
+//   const pairs = arr1.map((a, i) => [a, arr2[i]]);
+//   const sumMap = new Map();
+
+//   for (const [a, b] of pairs) {
+//     const sum = a + b;
+//     if (!sumMap.has(sum)) sumMap.set(sum, []);
+//     sumMap.get(sum).push([a, b]);
+//   }
+//   const repeatedGroups = [...sumMap.entries()].filter(
+//     ([_, group]) => group.length > 1
+//   );
+
+//   if (repeatedGroups.length === 0) return [];
+
+//   repeatedGroups.sort((a, b) => {
+//     const countDiff = b[1].length - a[1].length;
+//     if (countDiff !== 0) return countDiff;
+//     return b[0] - a[0];
+//   });
+
+//   return repeatedGroups[0][1];
+// }
+
+// console.log(findPair([1, 2, 3, 4, 5], [9, 8, 0, 0, 0]));
+
+// 9) название: Sum The Tree 6 kyu
+// ссылка: https://www.codewars.com/kata/5800580f8f7ddaea13000025/train/javascript
+// выход:Напишите функцию, возвращающую сумму всех значений, включая корень.
+// Отсутствие узла будет отмечено значением null.
+// {value: 10, left: {value: 1, left: null, right: null}, right: {value: 2, left: null, right: null}}; - 13
+
+// function sumTheTreeValues(root) {
+//   let sum = 0;
+//   for (let key in root) {
+//     if (typeof root[key] !== "object") {
+//       sum += root[key];
+//     } else if (root[key] !== null) {
+//       sum += sumTheTreeValues(root[key]);
+//     }
+//   }
+//   return sum;
+// }
+
+// console.log(
+//   sumTheTreeValues({
+//     value: 10,
+//     left: { value: 1, left: null, right: null },
+//     right: { value: 2, left: null, right: null },
+//   })
+// );
+
+// 10) название: Object depth 6 kyu
+// ссылка: https://www.codewars.com/kata/5aa1ca484a6b34f9a000011e/train/javascript
+// выход: depth({a: 1, b: {c: 2}}), 2
+
+// function depth(obj) {
+//   var d = 0;
+//   if (obj === null || Array.isArray(obj)) return 0;
+//   if (typeof obj !== "object") return 0;
+//   const keys = Object.keys(obj);
+//   if (keys.length === 0) return 0;
+
+//   for (let key in obj) {
+//     if (
+//       typeof obj[key] === "object" &&
+//       obj[key] !== null &&
+//       !Array.isArray(obj[key])
+//     ) {
+//       d = Math.max(d, depth(obj[key]));
+//     }
+//   }
+//   return 1 + d;
+// }
+
+// console.log(depth({ a: 1, b: { c: 2 } }));
+
+// indexEqualsValue([-8,0,2,5]), 2 );
+
+// function indexEqualsValue(a) {
+//   let myMap = Object.entries(a);
+//   for (const [indexStr, value] of myMap) {
+//     const index = Number(indexStr);
+//     if (value === index) {
+//       return value;
+//     }
+//   }
+// }
+
+console.log(indexEqualsValue([-3, 0, 1, 3, 10]));

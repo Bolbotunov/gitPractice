@@ -1749,3 +1749,145 @@
 // for (let key of start) {
 //   console.log(key);
 // }
+
+// class Test {
+//   _myValue = 5;
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   set myValue(value) {
+//     if (value < 55) {
+//       throw new Error("error less 55");
+//     }
+//     this._myValue = value;
+//   }
+//   get myValue() {
+//     return this._myValue;
+//   }
+// }
+
+// let first = new Test("first stage");
+// first.myValue = 52;
+// console.log(first.myValue);
+
+// class CoffeeMachine {
+//   _waterAmount = 0;
+
+//   set waterAmount(value) {
+//     if (value < 0) throw new Error("Отрицательное количество воды");
+//     this._waterAmount = value;
+//   }
+
+//   get waterAmount() {
+//     return this._waterAmount;
+//   }
+
+//   constructor(power) {
+//     this._power = power;
+//   }
+// }
+
+// // создаём новую кофеварку
+// let coffeeMachine = new CoffeeMachine(100);
+
+// // устанавливаем количество воды
+// coffeeMachine.waterAmount = -10;
+
+// class myClass extends Array {
+//   sumArr() {
+//     return this.reduce((acc, item) => {
+//       return (acc += item);
+//     }, 0);
+//   }
+// }
+
+// let a = new myClass(1, 2, 3);
+// console.log(a.sumArr());
+
+// let prom1 = new Promise((resolve) => setTimeout(() => resolve("ok1"), 1000));
+// let prom2 = new Promise((resolve, reject) =>
+//   setTimeout(() => reject("error2"), 2000)
+// );
+// let prom3 = new Promise((resolve) => setTimeout(() => resolve("ok3"), 3000));
+
+// let a = Promise.allSettled([prom1, prom2, prom3]).then((b) => console.log(b));
+
+// console.log(a);
+
+// let arr = [1, 2, 3];
+// Array.prototype.myMap = function (fn) {
+//   let result = [];
+//   for (let i = 0; i < this.length; i++) {
+//     result.push(fn(this[i]));
+//   }
+//   return result;
+// };
+
+// arr.myMap((item) => item * 10);
+
+// let msg = "outside";
+
+// if (true) {
+//   var msg = "inside";
+//   console.log(msg); // ?
+// }
+
+// console.log(msg); // ?
+
+// let x = "global";
+
+// {
+//   let x = "block";
+//   function one() {
+//     var x = "var inside block";
+//     console.log("inner", x); // ?
+//   }
+//   one();
+// }
+
+// console.log("global", x); // ?
+
+// let a = {
+//   name: "oleg",
+// };
+
+// let obj = Object.create(a, {
+//   age: { value: 11, writable: true, configurable: true, enumerable: true },
+//   city: {
+//     value: "polotsk",
+//     writable: true,
+//     configurable: true,
+//     enumerable: true,
+//   },
+// });
+
+// console.log(Object.getOwnPropertyDescriptor(obj, "age"));
+
+// let obj = {
+//   name: "oleg",
+// };
+
+// let a = obj;
+// let obj2 = {};
+
+// for (let key in obj) {
+//   obj2[key] = obj[key];
+// }
+
+// console.log(Object.is(obj, obj2));
+// "use strict";
+// a = 1;
+
+// console.log(a);
+// let user = {
+//   firstName: "Вася",
+//   sayHi: () => {
+//     console.log(`Привет, ${this.firstName}!`);
+//   },
+// };
+
+// let sayHi = user.sayHi.bind(user); // (*)
+
+// // user.sayHi.call(user);
+
+// sayHi();
